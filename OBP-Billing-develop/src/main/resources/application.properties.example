@@ -1,0 +1,29 @@
+# OBP Billing App configuration.
+#
+# Copy this file to src/main/resources/application.properties (git-ignored) and
+# fill in real values, or keep it anywhere on disk and point at it with the
+# OBP_BILLING_CONFIG environment variable or -Dobp.billing.config=/path/to/file.
+#
+# Every key can also be overridden by an environment variable whose name is the
+# key in upper case with dots replaced by underscores, e.g. OBP_PASSWORD,
+# NINJA_API_TOKEN. Environment variables take precedence over the file.
+#
+# ${key} references to other keys are expanded.
+
+# --- Open Bank Project API ---
+obp.api.rootUrl=https://apisandbox.openbankproject.com
+obp.api.versionedUrl=${obp.api.rootUrl}/obp/v5.1.0
+obp.api.directloginUrl=${obp.api.rootUrl}/my/logins/direct
+
+# Direct Login credentials of a user holding the CanGetConsumers and
+# CanReadAggregateMetrics roles. The consumer key is that of the app
+# registered for this billing job.
+obp.consumerKey=CHANGE_ME
+obp.username=CHANGE_ME
+obp.password=CHANGE_ME
+
+# --- Invoice Ninja (v4 REST API) ---
+ninja.api.rootUrl=https://invoicing.example.com/api/v1
+ninja.api.token=CHANGE_ME
+# Product whose cost is the price per API call.
+ninja.api.invoice.item.product_key=API-CALLS-PLAN-A
